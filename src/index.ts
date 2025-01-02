@@ -19,6 +19,11 @@ app.use(
   })
 );
 
+// Root Route
+app.get("/", (req, res) => {
+  res.send("Welcome to my RBAC application!");
+});
+
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
