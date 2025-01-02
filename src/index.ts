@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import dbConnect from "./config/dbConnect";
 import authRoutes from "./routes/authRoutes";
 import userRoutes from "./routes/userRoutes";
+import cors from "cors";
 dotenv.config();
 dbConnect();
 
@@ -11,6 +12,12 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 
 // Routes
 app.use("/api/auth", authRoutes);
