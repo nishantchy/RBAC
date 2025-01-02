@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI=your_mongo_connection_string
+    volumes:
+      - .:/app
+      - /app/node_modules
